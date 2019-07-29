@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             xmlns:services="clr-namespace:GPlayMusic.Services"
+             xmlns:vm="clr-namespace:GPlayMusic.ViewModels"
+             xmlns:views="clr-namespace:GPlayMusic.Views"
+             x:Class="GPlayMusic.Views.AlbumsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="cast_black.png" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <vm:AlbumsViewModel />
+    </ContentPage.BindingContext>
+    <Shell.SearchHandler>
+        <services:GPlayMusicSearchHandler Placeholder="Search music"
+                                          ShowsResults="true"
+                                          SearchBoxVisibility="Collapsible"
+                                          CancelButtonColor="Black"
+                                          TextColor="Black"
+                                          DisplayMemberName="Name">
+            <services:GPlayMusicSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <views:ArtistSearchItemView />
+                </DataTemplate>
+            </services:GPlayMusicSearchHandler.ItemTemplate>
+        </services:GPlayMusicSearchHandler>
+    </Shell.SearchHandler>
+    <ContentPage.Content>
+        <CollectionView BackgroundColor="{StaticResource AppBackgroundColor}" ItemsSource="{Binding Cards}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:SquareCardView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

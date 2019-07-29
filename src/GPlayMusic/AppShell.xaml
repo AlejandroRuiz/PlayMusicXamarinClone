@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:GPlayMusic.Views"
+    Title="GPlayMusic"
+    x:Class="GPlayMusic.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#FEFEFE</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="#ED6237" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.UnselectedColor" Value="#757575" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#ED6237" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#757575" />
+                <Setter Property="Shell.TabBarTitleColor" Value="#ED6237" />
+            </Style>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <local:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home">
+        <Tab Icon="home_black.png" Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Icon="history_black.png" Title="Recents">
+            <ShellContent ContentTemplate="{DataTemplate local:RecentsPage}" />
+        </Tab>
+        <Tab Icon="library_music_black.png" Title="Library">
+            <ShellContent Title="PLAYLISTS" ContentTemplate="{DataTemplate local:PlaylistsPage}" />
+            <ShellContent Title="STATIONS" ContentTemplate="{DataTemplate local:StationsPage}" />
+            <ShellContent Title="ALBUMS" ContentTemplate="{DataTemplate local:AlbumsPage}" />
+        </Tab>
+        <Tab Icon="stars_black.png" Title="Browse">
+            <ShellContent ContentTemplate="{DataTemplate local:BrowsePage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid VerticalOptions="Start">
+                <Label Margin="10" Text="{Binding Title}"
+                       Style="{StaticResource Menu_BlackLabel}"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Label Margin="10" Text="{Binding Text}"
+                       Style="{StaticResource Menu_BlackLabel}"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    <MenuItem Text="Downloaded Only"
+              Command="{Binding RandomPageCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="10" Text="{Binding Text}"
+                       Style="{StaticResource Menu_BlackLabel}"
+                       VerticalTextAlignment="Center" />
+                    <Switch Margin="10,0" HorizontalOptions="Center" Grid.Column="1" OnColor="#ED6237" />
+                </Grid>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+    <MenuItem Text="Settings"
+              Command="{Binding RandomPageCommand}" />
+
+    <MenuItem Text="Send Feedback"
+              Command="{Binding RandomPageCommand}" />
+</Shell>

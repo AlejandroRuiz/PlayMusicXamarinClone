@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GPlayMusic.Views.FlyoutHeader"
+    VerticalOptions="Start"
+    HeightRequest="150">
+    <ContentView.Content>
+        <Grid>
+            <Image Source="gdl_background.jpg" Aspect="AspectFill" />
+            <BoxView BackgroundColor="Black" Opacity="0.5" />
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Padding="15,0,0,0">
+                <Frame CornerRadius="30"
+                       HorizontalOptions="Start"
+                       Padding="0"
+                       IsClippedToBounds="True">
+                    <Image Source="gdl_background.jpg"
+                           HeightRequest="60"
+                           WidthRequest="60"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Frame>
+                <Label Style="{DynamicResource WhiteLabel}" Text="Alejandro Ruiz Varela" />
+                <Label Style="{DynamicResource WhiteLabel}" Text="alejandro@alejandroruizvarela.com" />
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

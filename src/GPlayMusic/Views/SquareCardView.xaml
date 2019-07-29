@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="GPlayMusic.Views.SquareCardView">
+    <ContentView.Content>
+        <pv:PancakeView VerticalOptions="Start" BackgroundColor="White" IsClippedToBounds="True" Elevation="10" Margin="5,5,5,5">
+            <Grid BackgroundColor="White" VerticalOptions="Start" HeightRequest="230">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*" />
+                    <RowDefinition Height="30*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                <BoxView Grid.Row="0" Opacity=".2" Color="Black" />
+                <ImageButton Grid.Row="0" Margin="5" VerticalOptions="Start" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" Source="more_vert_white" />
+                <ImageButton Grid.Row="0" Margin="5" VerticalOptions="End" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" Source="play_circle_filled_white" />
+                <Label Margin="10" Grid.Row="1"  Style="{StaticResource Browse_BlackLabel}" Text="{Binding Title}" />
+            </Grid>
+        </pv:PancakeView>
+    </ContentView.Content>
+</ContentView>

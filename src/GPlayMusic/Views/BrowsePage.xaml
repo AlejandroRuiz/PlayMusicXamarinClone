@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GPlayMusic.Views.BrowsePage" Title="{Binding Title}" xmlns:vm="clr-namespace:GPlayMusic.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:services="clr-namespace:GPlayMusic.Services"
+             xmlns:views="clr-namespace:GPlayMusic.Views">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="cast_black.png" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <vm:BrowseViewModel />
+    </ContentPage.BindingContext>
+    <Shell.SearchHandler>
+        <services:GPlayMusicSearchHandler Placeholder="Search music"
+                                          ShowsResults="true"
+                                          SearchBoxVisibility="Collapsible"
+                                          CancelButtonColor="Black"
+                                          TextColor="Black"
+                                          DisplayMemberName="Name">
+            <services:GPlayMusicSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <views:ArtistSearchItemView />
+                </DataTemplate>
+            </services:GPlayMusicSearchHandler.ItemTemplate>
+        </services:GPlayMusicSearchHandler>
+    </Shell.SearchHandler>
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{StaticResource AppBackgroundColor}">
+            <pv:PancakeView VerticalOptions="Start" BackgroundColor="White" IsClippedToBounds="True" Elevation="10" Margin="10">
+                    <Grid HeightRequest="200" RowSpacing="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"  />
+                            <ColumnDefinition Width="8*"  />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="20" WidthRequest="20" Source="star_black" />
+                        <Label Grid.Column="1" Grid.Row="0" Style="{StaticResource Browse_BlackLabel}" Text="Top charts" VerticalTextAlignment="Center" />
+
+                        <Image Grid.Column="0" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="20" WidthRequest="20" Source="new_releases_black" />
+                        <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource Browse_BlackLabel}" Text="New releases" VerticalTextAlignment="Center" />
+
+                        <Image Grid.Column="0" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="20" WidthRequest="20" Source="radio_black" />
+                        <Label Grid.Column="1" Grid.Row="2" Style="{StaticResource Browse_BlackLabel}" Text="Browse stations" VerticalTextAlignment="Center" />
+                    </Grid>
+            </pv:PancakeView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

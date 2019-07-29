@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    HeightRequest="300"
+    VerticalOptions="Start"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GPlayMusic.Views.HomeCardView">
+    <ContentView.Content>
+        <Grid>
+            <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+            <BoxView Color="Black" Opacity=".2" />
+            <StackLayout VerticalOptions="End" Margin="20" Spacing="0">
+                <Label Style="{StaticResource HomeCard_TitleWhiteLabel}" Text="{Binding Title}" />
+                <BoxView Margin="0,20" HorizontalOptions="Start" HeightRequest="3" WidthRequest="50" Color="White" />
+                <Label Margin="0,0,0,5" Style="{StaticResource HomeCard_SubtitleWhiteLabel}" Text="{Binding SubTitle}" />
+                <Label Style="{StaticResource HomeCard_DetailsWhiteLabel}" Text="{Binding Details}" />
+            </StackLayout>
+            <ImageButton Margin="20" BackgroundColor="Transparent" Aspect="AspectFit" Source="play_circle_filled_white" VerticalOptions="End" HorizontalOptions="End" HeightRequest="35" WidthRequest="35" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GPlayMusic.Views.ArtistSearchItemView" HeightRequest="50">
+    <ContentView.Content>
+        <Grid HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ImageUrl}"
+                               Aspect="AspectFill"
+                               HeightRequest="50"
+                               WidthRequest="50" />
+                        <Label Grid.Column="1"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                    </Grid>
+    </ContentView.Content>
+</ContentView>
