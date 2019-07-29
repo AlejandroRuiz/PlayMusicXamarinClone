@@ -12,3 +12,5 @@ Google Play Music app clone using Xamarin.Forms Shell
 <img src="images/droid-1.png" Width="240" />
 <img src="images/droid-2.png" Width="240" />
 <img src="images/droid-3.png" Width="240" />
+
+*****All names, trademarks and images are property of their respective owners*****
